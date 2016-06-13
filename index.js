@@ -9,44 +9,40 @@ var React = require('react-native');
 var { Platform } = React;
 
 module.exports = {
-  getAll: function() {
-    console.warn('Warning: getContacts returns dummy data in the Siphon Sandbox');
+  getAll: function(callback) {
+    console.warn('Warning: getAll returns dummy data in the Siphon Sandbox');
     if (Platform.OS === 'ios') {
-      return [
-        {
-          recordID: 1,
-          familyName: 'Jung',
-          givenName: 'Carl',
-          middleName: '',
-          emailAddresses: [{
-            label: 'work',
-            email: 'carl-jung@example.com',
-          }],
-          phoneNumbers: [{
-            label: 'mobile',
-            number: '(555) 555-5555',
-          }],
-          thumbnailPath: '',
-        }
-      ];
+      callback(null, [{
+        recordID: 1,
+        familyName: 'Jung',
+        givenName: 'Carl',
+        middleName: '',
+        emailAddresses: [{
+          label: 'work',
+          email: 'carl-jung@example.com',
+        }],
+        phoneNumbers: [{
+          label: 'mobile',
+          number: '(555) 555-5555',
+        }],
+        thumbnailPath: '',
+      }]);
     } else {
-      return [
-        {
-          recordID: 1,
-          familyName: '',
-          givenName: 'Carl Jung',
-          middleName: '',
-          emailAddresses: [{
-            label: 'work',
-            email: 'carl-jung@example.com',
-          }],
-          phoneNumbers: [{
-            label: 'mobile',
-            number: '(555) 555-5555',
-          }],
-          thumbnailPath: '',
-        }
-      ];
+      callback(null, [{
+        recordID: 1,
+        familyName: '',
+        givenName: 'Carl Jung',
+        middleName: '',
+        emailAddresses: [{
+          label: 'work',
+          email: 'carl-jung@example.com',
+        }],
+        phoneNumbers: [{
+          label: 'mobile',
+          number: '(555) 555-5555',
+        }],
+        thumbnailPath: '',
+      }]);
     }
   },
 
